@@ -3,83 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
+    <div class="Container">
+        <h1>Rock, Paper, and Scissors</h1>
+        <button class="playButton" onclick="showGameLayout()">Play</button>
+        <div class="gameLayout">
+            <div class="scores"></div>
+            <div></div>
+        
+        </div>
+    </div>
+    
 
 
 
-
-
-    <script>
-
-        function getComputerChoice(){
-            const choices = ['Rock','Paper','Scissors'] // Assign the computer's selection
-            const randomIndex = Math.floor(Math.random() * choices.length);
-
-            return choices[randomIndex];
-        }
-
-
-        function playRound(playerSelection, computerSelection){
-            playerSelection = playerSelection.toLowerCase();
-            computerSelection = computerSelection.toLowerCase();
-
-            if (playerSelection == computerSelection){
-                return "It is a tie! Both chose " + playerSelection;
-            } else if ((playerSelection == "rock" && computerSelection == "scissors")
-                || (playerSelection == "scissors"  && computerSelection == "paper")
-                || (playerSelection == "paper" && computerSelection == "rock")
-                ){
-                return "You Won! " + playerSelection + " beats " + computerSelection;
-            } else {
-                return "You Lost! " + computerSelection + " beats " + playerSelection;
-            }
-
-        } 
-
-        function playGame(){
-            let playerScore = 0;
-            let computerScore = 0;
-
-            for(let round = 1; round <= 5; round++){
-                console.log("Round " + round + "!")
-
-                let playerSelection = prompt("Enter your choice (Rock, Paper, or Scissors):"); // Give's a prompt for user to type in his choice
-                let computerSelection = getComputerChoice(); // Assign the computer's selection
-
-                console.log("Player's choice : " + playerSelection)
-                console.log("Computer's choice : " + computerSelection)
-
-                let result = playRound(playerSelection, computerSelection);
-                console.log(result)
-
-                if (result.startsWith("You Won!")) {
-                    playerScore++;
-                } else if (result.startsWith("You Lost!")) {
-                    computerScore++;
-        }
-            }
-
-            console.log("Game Over!");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
-
-            if (playerScore > computerScore){
-                console.log("You Won! Congratulations!")
-            } else if (playerScore < computerScore){
-                console.log("You Lost! Better Luck Next Time!")
-            } else {
-                console.log("We have a tie! No one won :<")
-            }
-
-        }
-
-
-        playGame();
-
-
-
-    </script>
+    <script src="./script.js"></script>
 </body>
 </html>
